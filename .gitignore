@@ -1,9 +1,7 @@
 
 # json
- mock/classes.json
- mock/spells.json
- mock/spells_classes.json
- 
+ mock/*.json
+
 # Logs
 logs
 *.log
