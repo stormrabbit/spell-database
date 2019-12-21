@@ -1,7 +1,9 @@
 
 # json
-node_modules/*.json
-
+ mock/classes.json
+ mock/spells.json
+ mock/spells_classes.json
+ 
 # Logs
 logs
 *.log
