@@ -2,8 +2,8 @@ const es = require('eschew-materials');
 
 const readDatas = async () => await es.fsTools.readFilePlus('./mock/全法术列表-表格 1.csv');
 const buildRelation = (condition, value, name) => (!!condition) ? [{
-    name,
-    class: value
+    spell_name: value,
+    class_name: name
 }] : [];
 const main = async () => {
     const resources = await readDatas();
@@ -18,7 +18,8 @@ const main = async () => {
     })
     const parseThird = parseSecond.map(ps => {
         const obj = {};
-        obj.nickname = (ps['法术名称'] + '').replace(/[^\u4E00-\u9FA5]/g, '');
+        const names =  (ps['法术名称'] + '').split(' ');
+        obj.nickname =names[names.length -1];
         obj.name = (ps['法术名称'] + '').replace(obj.nickname, '').split(' ').filter(tm => !!tm).map(tm => tm.toLocaleLowerCase()).join('_');
         obj.school = (ps['派系'] + '');
         obj.time = (ps['施法时间'] + '');
