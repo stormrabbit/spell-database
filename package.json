@@ -1,0 +1,14 @@
+{
+  "name": "spell_book_init",
+  "version": "1.0.0",
+  "description": "spell book 数据初始化操作",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "龙骑将杨影枫",
+  "license": "ISC",
+  "dependencies": {
+    "eschew-materials": "^1.0.4"
+  }
+}
