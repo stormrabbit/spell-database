@@ -126,6 +126,6 @@ db.getCollection('spells_classes').aggregate([{
     preserveNullAndEmptyArrays: true // 空的数组也拆分
   }
 }
-])
+]).map( item => ({name: item.spell.nickname, class: item.class.nickname}))
 ```
 
