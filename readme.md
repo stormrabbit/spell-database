@@ -129,3 +129,35 @@ db.getCollection('spells_classes').aggregate([{
 ]).map( item => ({name: item.spell.nickname, class: item.class.nickname}))
 ```
 
+- 给各个职业添加专属颜色
+
+```
+// 给所有职业添加颜色字段
+db.getCollection('classes').update({}, {$set: {color:""}}, {multi: 1})
+
+// 给小德添加绿色字段
+db.getCollection('classes').update({name: 'druid'}, {$set: {color:"#4CAF50"}}, {multi: 1})
+
+// 给圣骑添加琥珀色字段
+db.getCollection('classes').update({name: 'paladin'}, {$set: {color:"#FFC107"}}, {multi: 1})
+
+
+// 给游侠添加青柠色
+db.getCollection('classes').update({name: 'ranger'}, {$set: {color:"#009688"}}, {multi: 1})
+
+// 给术士添加靛蓝色 
+db.getCollection('classes').update({name: 'sorcerer'}, {$set: {color:"#3F51B5"}}, {multi: 1})
+
+// 给邪术师添加紫色 
+db.getCollection('classes').update({name: 'warlock'}, {$set: {color:"#9C27B0"}}, {multi: 1})
+
+// 给法师添加蓝色字段
+db.getCollection('classes').update({name: 'wizard'}, {$set: {color:"#2196F3"}}, {multi: 1})
+
+// 给牧师添加 #CDDC39 颜色
+db.getCollection('classes').update({name: 'cleric'}, {$set: {color:"#CDDC39"}}, {multi: 1})
+
+// 给诗人添加粉色 #E91E63
+db.getCollection('classes').update({name: 'band'}, {$set: {color:"#E91E63"}}, {multi: 1})
+
+```
