@@ -77,6 +77,8 @@ db.getCollection('spells_classes').find({class_name: 'wizard'}).count()
 ```
 db.getCollection('spells_classes').update({}, {$rename:{"spell_name":"spell_id"}}, false, true)
 
+db.getCollection('spells_classes').update({}, {$rename:{"class_name":"class_id"}}, false, true)
+
 // 参数提示：
 // 第一个false表示：可选，这个参数的意思是，如果不存在update的记录，true为插入新的记录，默认是false，不插入。
 // 第二个true表示：可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。
@@ -96,6 +98,12 @@ db.getCollection('classes').find({}).forEach(
 // update 第一个 {} ：条件
 // 第二个 {} ：列与值
 // 第三个 {} ：update 参数，multi:true 是批量更新
+
+db.getCollection('spells').find({}).forEach(
+   function(item){                
+       db.getCollection('spells_classes').update({"spell_id":item.name},{$set:{"spell_id":item._id}}, {multi:true})
+   }
+)
 ```
 
 - 查询法师拥有的法术 (`$lookup`，3.2 之后版本支持)
@@ -161,3 +169,4 @@ db.getCollection('classes').update({name: 'cleric'}, {$set: {color:"#CDDC39"}}, 
 db.getCollection('classes').update({name: 'band'}, {$set: {color:"#E91E63"}}, {multi: 1})
 
 ```
+

@@ -19,6 +19,7 @@ const main = async () => {
     const parseThird = parseSecond.map(ps => {
         const obj = {};
         const names =  (ps['法术名称'] + '').split(' ');
+        obj.lvl = (ps['等级']  + '')
         obj.nickname =names[names.length -1];
         obj.name = (ps['法术名称'] + '').replace(obj.nickname, '').split(' ').filter(tm => !!tm).map(tm => tm.toLocaleLowerCase()).join('_');
         obj.school = (ps['派系'] + '');
@@ -32,7 +33,8 @@ const main = async () => {
 
     const parseForth = parseSecond.reduce((pre, cur) => {
         const nickname = cur['法术名称'] + '';
-        const name = (cur['法术名称'] + '').replace((nickname).replace(/[^\u4E00-\u9FA5]/g, ''), '').split(' ').filter(tm => !!tm).map(tm => tm.toLocaleLowerCase()).join('_');
+        const tempLine = nickname.split(' ');
+        const name = tempLine.filter( (val, index) => (index !== (tempLine.length -1))).filter(tm => !!tm).map(tm => tm.toLocaleLowerCase()).join('_');
         const band = cur['诗人'] + '';
         const cleric = cur['牧师'] + '';
         const druid = cur['德鲁伊'] + '';
