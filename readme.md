@@ -170,3 +170,32 @@ db.getCollection('classes').update({name: 'band'}, {$set: {color:"#E91E63"}}, {m
 
 ```
 
+- 给职业添加子职
+
+```
+// 给法师添加子职
+db.getCollection('classes').update({name: 'wizard'}, {$set: {sub:['剑歌学派', '塑能学派', '防护学派', '咒法学派', '预言学派', '幻术学派', '附魔学派', '死灵学派', '变化学派']}}, {multi: 1})
+
+// 给牧师添加子职
+db.getCollection('classes').update({name: 'cleric'}, {$set: {sub:['奥秘领域', '生命领域', '知识领域', '光明领域', '自然领域', '风暴领域', '战争领域']}}, {multi: 1})
+
+// 给德鲁伊添加子职
+db.getCollection('classes').update({name: 'druid'}, {$set: {sub:['大地结社', '月亮结社']}}, {multi: 1})
+
+// 给圣骑添加子职
+db.getCollection('classes').update({name: 'paladin'}, {$set: {sub:['奉献之誓', '复仇之誓', '古贤之誓', '王冠之誓']}}, {multi: 1})
+
+// 给游侠添加子职
+db.getCollection('classes').update({name: 'ranger'}, {$set: {sub:['驯兽大师', '荒野猎人']}}, {multi: 1})
+
+// 给术士添加子职
+db.getCollection('classes').update({name: 'sorcerer'}, {$set: {sub:['龙族血脉', '狂野法术', '神圣之魂']}}, {multi: 1})
+
+// 给术士添加子职
+db.getCollection('classes').update({name: 'warlock'}, {$set: {sub:['至高妖精', '邪魔', '旧日支配者', '咒剑士']}}, {multi: 1})
+
+// 给吟游诗人添加子职
+db.getCollection('classes').update({name: 'band'}, {$set: {sub:['逸闻学院', '勇气学院']}}, {multi: 1})
+
+```
+
