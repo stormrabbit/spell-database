@@ -191,7 +191,7 @@ db.getCollection('classes').update({name: 'ranger'}, {$set: {sub:['驯兽大师'
 // 给术士添加子职
 db.getCollection('classes').update({name: 'sorcerer'}, {$set: {sub:['龙族血脉', '狂野法术', '神圣之魂']}}, {multi: 1})
 
-// 给术士添加子职
+// 给邪术师添加子职
 db.getCollection('classes').update({name: 'warlock'}, {$set: {sub:['至高妖精', '邪魔', '旧日支配者', '咒剑士']}}, {multi: 1})
 
 // 给吟游诗人添加子职
@@ -199,3 +199,31 @@ db.getCollection('classes').update({name: 'band'}, {$set: {sub:['逸闻学院', 
 
 ```
 
+- 给职业添加关键属性
+
+```
+// 给法师添加子职
+db.getCollection('classes').update({name: 'wizard'}, {$set: {keyword:'智力'}}, {multi: 1})
+
+// 给牧师添加子职
+db.getCollection('classes').update({name: 'cleric'}, {$set: {keyword:'感知'}}, {multi: 1})
+
+// 给德鲁伊添加子职
+db.getCollection('classes').update({name: 'druid'}, {$set: {keyword:'感知'}}, {multi: 1})
+
+// 给圣骑添加子职
+db.getCollection('classes').update({name: 'paladin'}, {$set: {keyword:'魅力'}}, {multi: 1})
+
+// 给游侠添加子职
+db.getCollection('classes').update({name: 'ranger'}, {$set: {keyword:'感知'}}, {multi: 1})
+
+// 给术士添加子职
+db.getCollection('classes').update({name: 'sorcerer'}, {$set: {keyword:'魅力'}}, {multi: 1})
+
+// 给邪术师添加子职
+db.getCollection('classes').update({name: 'warlock'}, {$set: {keyword:'魅力'}}, {multi: 1})
+
+// 给吟游诗人添加子职
+db.getCollection('classes').update({name: 'band'}, {$set: {keyword:'魅力'}}, {multi: 1})
+
+```
